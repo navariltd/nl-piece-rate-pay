@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "autoname": "format:CPR-{DD}-{MM}-{####}",
+ "creation": "2024-04-17 15:49:49.071019",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "company",
+  "section_break_ghscz",
+  "casual_payrol_payout_item",
+  "section_break_vkqah",
+  "total_quantity",
+  "column_break_7hfkz",
+  "total_amount",
+  "section_break_ackd",
+  "column_break_bhny",
+  "shift_type",
+  "column_break_3",
+  "attendance_date",
+  "section_break_35mnb",
+  "salary_structure",
+  "column_break_wenag",
+  "casual_salary_component",
+  "employee_section",
+  "casual_payrol_payout_employee",
+  "payment_processed"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Casual Payroll Payout",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Set filters to fetch employees",
+   "fieldname": "section_break_ackd",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_bhny",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shift_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift Type",
+   "options": "Shift Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attendance_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Attendance Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ghscz",
+   "fieldtype": "Section Break",
+   "label": "Casual Payroll Payout Item"
+  },
+  {
+   "fieldname": "section_break_vkqah",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "label": "Total Quantity"
+  },
+  {
+   "fieldname": "column_break_7hfkz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "employee_section",
+   "fieldtype": "Section Break",
+   "label": "Casual Payroll Payout Employee"
+  },
+  {
+   "fieldname": "salary_structure",
+   "fieldtype": "Link",
+   "label": "Salary Structure",
+   "options": "Salary Structure",
+   "read_only": 1
+  },
+  {
+   "fieldname": "casual_salary_component",
+   "fieldtype": "Link",
+   "label": "Casual salary Component",
+   "options": "Salary Component",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_35mnb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wenag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "casual_payrol_payout_item",
+   "fieldtype": "Table",
+   "label": "Casual Payroll Payout Item",
+   "options": "Casual Payroll Payout Item"
+  },
+  {
+   "fieldname": "casual_payrol_payout_employee",
+   "fieldtype": "Table",
+   "label": "Casual Payroll Payout Employee",
+   "options": "Casual Payroll Payout Employee"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "payment_processed",
+   "fieldtype": "Check",
+   "ignore_user_permissions": 1,
+   "label": "Payment Processed"
+  }
+ ],
+ "hide_toolbar": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-04-24 12:56:07.842413",
+ "modified_by": "Administrator",
+ "module": "CSF KE",
+ "name": "Casual Payroll Payout",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
