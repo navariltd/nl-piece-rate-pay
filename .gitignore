@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+nl_piece_rate_pay/docs/current
+node_modules/
