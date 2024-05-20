@@ -5,6 +5,21 @@ app_description = "Casual Piece Rate"
 app_email = "mania@navari.co.ke"
 app_license = "AGPL"
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                (
+                    "Salary Structure Assignment-custom_casual_weekly_pay",                   
+                ),
+            ]
+        ],
+    },
+   
+]
 # Includes in <head>
 # ------------------
 
