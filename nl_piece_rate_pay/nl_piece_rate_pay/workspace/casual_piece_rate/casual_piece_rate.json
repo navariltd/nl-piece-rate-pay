@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"TFGWHXtT34\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Casual Piece Rate</span>\",\"col\":12}},{\"id\":\"SIfGwCveBT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Activity Item\",\"col\":3}},{\"id\":\"CeZ63AmI5-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Salary Structure Assignment Tool\",\"col\":3}},{\"id\":\"Z5YADe8s5V\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Payroll Payout\",\"col\":3}}]",
- "creation": "2024-05-20 09:37:30.945724",
+ "content": "[{\"id\":\"9HGm55y889\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Casual Piece Rate</span>\",\"col\":12}},{\"id\":\"TIbQgaOmvH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Activity Item\",\"col\":4}},{\"id\":\"RlDQdF5EOc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Salary Structure Assignment Tool\",\"col\":4}},{\"id\":\"JCgieJP-fC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Casual Daily Payroll Payout\",\"col\":4}}]",
+ "creation": "2024-05-21 17:19:45.641814",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -9,20 +9,21 @@
  "hide_custom": 0,
  "icon": "money-coins-1",
  "idx": 0,
+ "indicator_color": "green",
  "is_hidden": 0,
  "label": "Casual Piece Rate",
  "links": [],
- "modified": "2024-05-20 09:39:21.348316",
+ "modified": "2024-05-21 17:21:49.926551",
  "modified_by": "Administrator",
  "module": "NL Piece Rate Pay",
  "name": "Casual Piece Rate",
  "number_cards": [],
  "owner": "Administrator",
- "parent_page": "",
+ "parent_page": "Payroll",
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 58.0,
+ "sequence_id": 46.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -43,7 +44,7 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Casual Payroll Payout",
+   "label": "Casual Daily Payroll Payout",
    "link_to": "Casual Payroll Payout",
    "stats_filter": "[]",
    "type": "DocType"

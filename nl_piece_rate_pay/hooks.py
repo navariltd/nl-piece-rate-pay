@@ -20,6 +20,9 @@ fixtures = [
     },
    
 ]
+
+doctype_js = {"Activity Type" : "nl_piece_rate_pay/client_scripts/activity_type_mapper.js"}
+
 # Includes in <head>
 # ------------------
 
