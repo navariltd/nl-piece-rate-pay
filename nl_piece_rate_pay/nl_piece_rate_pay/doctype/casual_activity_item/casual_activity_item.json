@@ -57,7 +57,7 @@
   },
   {
    "default": "0",
-   "description": "per day",
+   "description": "per item",
    "fieldname": "costing_rate",
    "fieldtype": "Currency",
    "label": "Costing Rate"
@@ -76,9 +76,9 @@
   }
  ],
  "links": [],
- "modified": "2024-04-23 07:58:13.804557",
+ "modified": "2024-05-21 17:23:40.990331",
  "modified_by": "Administrator",
- "module": "CSF KE",
+ "module": "NL Piece Rate Pay",
  "name": "Casual Activity Item",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
