@@ -59,7 +59,21 @@ The Piece Rate Pay streamlines the management of casual workers' payments by pro
 
 This system simplifies the process of calculating daily and weekly payouts for casual workers, ensuring accurate payroll processing and efficient management of salary structures.
 
-
+## Installation
+### Manual Installation
+1. [Install bench](https://github.com/frappe/bench)
+2. [Install ERPNext](https://github.com/frappe/erpnext#installation)
+3. [Install Frappe HR](https://github.com/frappe/hrms)
+4. Once bench, ERPNext and Frappe HR are installed, add nl_piece_rate_pay to your bench by running
+    ```sh
+        $ bench get-app https://github.com/navariltd/nl-piece-rate-pay.git
+    ```
+    Replace <i>{branch-name}</i> with any of the repository's branches
+5. After that, you can install the nl_piece_rate_pay app on the required site by running 
+    ```sh
+        $ bench --site {sitename} install-app nl_piece_rate_pay
+    ```
+    Replace <i>{sitename}</i> with the name of your site
 #### License
 
 AGPL
