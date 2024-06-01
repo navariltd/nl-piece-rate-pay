@@ -1,9 +1,10 @@
 app_name = "nl_piece_rate_pay"
-app_title = "NL Piece Rate Pay"
+app_title = "Navari Piece Rate Pay"
 app_publisher = "Navari-Ltd"
-app_description = "Casual Piece Rate"
+app_description = "FrappeHR App for periodic payouts for piece rate payroll by navari Ltd"
 app_email = "mania@navari.co.ke"
-app_license = "AGPL"
+app_license = "GNU Affero General Public License v3.0"
+required_apps = ["frappe/erpnext/hrms"]
 
 fixtures = [
     {
