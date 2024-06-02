@@ -4,7 +4,7 @@ app_publisher = "Navari Ltd"
 app_description = "FrappeHR App for periodic payments to piece rate employees by Navari Ltd"
 app_email = "mania@navari.co.ke"
 app_license = "GNU Affero General Public License v3.0"
-required_apps = ["frappe/erpnext/hrms"]
+required_apps = ["frappe/erpnext"]
 
 fixtures = [
     {
