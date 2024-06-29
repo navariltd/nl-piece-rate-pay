@@ -19,7 +19,7 @@ The Piece Rate Pay streamlines the management of casual workers' payments by pro
 
   
 
-Define primary tasks for casual workers, such as "Washing" or "Cleaning".
+Define primary tasks for casual workers, such as "Washing" "Loading" or "Un-Loading".
 
 - Write the 'Activity Type' name and Save.
 
@@ -29,7 +29,7 @@ Define primary tasks for casual workers, such as "Washing" or "Cleaning".
 
   
 
-Link specific items/products to activity types. Set the cost per item task (e.g., washing each NETM-001 costs Ksh. 150).<br/>
+Link specific items/products to activity types. Set the cost per item task (e.g., Loading each 50 KG Bag of Cement @ KSH. 100, Washing each Fishing Net, @ Ksh. 150).<br/>
 
   
   
