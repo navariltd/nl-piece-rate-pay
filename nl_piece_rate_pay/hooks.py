@@ -1,5 +1,5 @@
 app_name = "nl_piece_rate_pay"
-app_title = "Navari Piece Rate Pay"
+app_title = "Piece Rate Pay"
 app_publisher = "Navari Ltd"
 app_description = "FrappeHR App for periodic payments to piece rate employees by Navari Ltd"
 app_email = "mania@navari.co.ke"
