@@ -18,9 +18,8 @@ class CasualSalaryStructureAssignmentTool(Document):
 			salary_structure_assignment.save()
    
 	def on_cancel(self):
-		casual_payout_list=casual_payout_list = frappe.get_all("Casual Payroll Payout",  filters={
-											"attendance_date": (">=", self.start_date),
-											"attendance_date": ("<=", self.end_date),
+		casual_payout_list = frappe.get_all("Casual Payroll Payout",  filters={
+											"attendance_date": ["between", [self.start_date, self.end_date]],
 											"docstatus":1,
 											"payment_processed":1
 										},fields=["name"])
@@ -38,8 +37,7 @@ def get_employees_calculate_weekly_pay():
 
 # Retrieve all Casual Payroll Payout documents within the specified date range
 	casual_payout_list = frappe.get_all("Casual Payroll Payout",  filters={
-											"attendance_date": (">=", start_date),
-											"attendance_date": ("<=", end_date),
+											"attendance_date": ["between", [start_date, end_date]],
 											"docstatus":1,
 											"payment_processed":0
 										},fields=["name"])
