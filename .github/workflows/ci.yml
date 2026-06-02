@@ -26,6 +26,18 @@ jobs:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
+      redis-cache:
+        image: redis:6.2-alpine
+        ports:
+          - 13000:6379
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-timeout=2s --health-retries=5
+
+      redis-queue:
+        image: redis:6.2-alpine
+        ports:
+          - 11000:6379
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-timeout=2s --health-retries=5
+
     steps:
       - name: Clone
         uses: actions/checkout@v4
@@ -72,15 +84,14 @@ jobs:
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
-          bench get-app --branch version-15 erpnext
-          bench get-app --branch version-15 hrms
-          bench get-app nl_piece_rate_pay $GITHUB_WORKSPACE
+          bench get-app --branch version-15 --skip-assets erpnext
+          bench get-app --branch version-15 --skip-assets hrms
+          bench get-app --skip-assets nl_piece_rate_pay $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
           bench --site test_site install-app erpnext
           bench --site test_site install-app hrms
           bench --site test_site install-app nl_piece_rate_pay
-          bench build
         env:
           CI: 'Yes'
 
