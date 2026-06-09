@@ -1,158 +1,111 @@
-
-## NL Piece Rate Pay
-
-  
-
-The Piece Rate Pay streamlines the management of casual workers' payments by providing tools for setting up activity types and linking them to specific items/products. It includes functionalities for daily attendance logging, calculating daily payouts based on attended activities, and assigning salary structures for specified timeframes. With automated rate fetching and payout calculations, this system ensures accurate and efficient payroll processing for casual workers.
-
-### 1. Set-Up
-
-  
-
-**Doctypes:**
-
-  
-
--  **Activity Type:**
-
-![Screenshot from 2024-08-14 16-27-52](https://github.com/user-attachments/assets/7c6d7da4-ed24-4d6d-9a74-6e57463aaa97)
-
-  
-
-Define primary tasks for casual workers, such as "Washing" "Loading" or "Un-Loading".
-
-- Write the 'Activity Type' name and Save.
-
--  **Casual Activity Item:**
-
-![Screenshot from 2024-08-14 16-24-54](https://github.com/user-attachments/assets/8930c6a9-944d-467b-95dd-34ebc8ca509c)
-
-  
-
-Link specific items/products to activity types. Set the cost per item task (e.g., Loading each 50 KG Bag of Cement @ KSH. 100, Washing each Fishing Net, @ Ksh. 150).<br/>
-
-  
-  
-
-- Choose the Activity Type
-
-- Choose the Item
-
-- Enter the cost
-
-- Save
-
-### 2. Daily Casual Payout
-
-  
-
-**Doctypes:**
-
-  
-
--  **Attendance:**
-
-Log daily attendance, including the type of shift worked.
-
--  **Casual Payroll Payout:**
-
-![image (3)](https://github.com/user-attachments/assets/66dae217-e76b-4c4a-a13f-a1931cefc658)
+# NL Piece Rate Pay
 
 
-Has two important tables.
+**Piece-rate ("casual") worker payroll for ERPNext & Frappe HR.**
 
-- **Casual Payroll Payout Item:**
-
-- Select the activity type
-
-- Select Item worked on.
-
-- The system will automatically fetch the rate set in the Casual Activity Item(if the item has not been set in the Casual Activity Item, then uswr will get a message to go and vcreate the Activity item).
-
-- Enter the quantity of items worked on that day.
-
-- Total payout for all activities is calculated automatically.
-
-- **Casual Payroll Payout Employee:**
-
-- Choose the shift type and attendance date.
-
-- Click on 'Get Employees' button.
-
-- The system retrieves employees present during the specified shift and date.(Always ensure casuals have there separate shift).
-
-- Click on 'Calculate Payout', the system then calculates the payout per employee. i.e Total Amount/Number of Employees fetched
-
-  
-
-### 3. Casual Salary Structure Assignment Tool
-
-  
-  
-![image (4)](https://github.com/user-attachments/assets/a173690d-0eb6-4137-9856-02a813d00274)
+NL Piece Rate Pay manages pay for workers who are paid for *what they do* — bags loaded, nets washed, crates packed — rather than a fixed monthly salary. It captures daily piece work, splits the day's earnings among the casuals who were present, rolls those amounts up over a pay period, and feeds the result into the standard Frappe HR payroll engine as Salary Structure Assignments — so statutory deductions like NSSF flow through the official payroll run.
 
 
-**Doctypes:**
+📖 **Full documentation:** https://docs.navari.co.ke/nl-piece-rate-pay/introduction
 
-  
+## Why this app?
 
--  **Casual Salary Structure Assignment Tool:**
+A large part of the workforce in many businesses — warehouses, fish processors, construction sites, agricultural depots — isn't on a fixed monthly salary. These **casual workers** are paid for *output*: bags loaded, nets washed, crates packed, sacks offloaded. Their pay is a function of piece work, not hours clocked or a flat salary.
 
-- Specify the date range for attendance.
+Standard ERPNext/Frappe HR payroll assumes the opposite — a salaried employee with a stable monthly base and a recurring cycle. Forcing casual, output-based pay through that machinery by hand is slow, error-prone, and nearly impossible to audit at the end of a week with dozens of workers across several activity types. The numbers usually end up in a spreadsheet on someone's laptop, disconnected from payroll and from statutory deductions.
 
-- Click "Calculate Payout" to sum the total amount earned by all casual workers during that period.
+NL Piece Rate Pay closes that gap. It turns daily piece work into auditable records, splits earnings fairly among the casuals who showed up, and rolls the period up into the *same* payroll engine everyone else runs through — so casual pay is a first-class, traceable part of the system, with NSSF and other deductions handled by the standard salary structure rather than worked out by hand.
 
-- Assign the appropriate salary structure for the specified timeframe.
+## Features
 
-- To ensure NSSF deductions, select the structure that includes NSSF contributions for the final week.
+- **Activity & rate setup** — define activity types ("Loading", "Washing", …) and the pay rate for each *activity + item* pair.
+- **Automatic rate fetching** — daily payouts pull the configured rate automatically and compute line and total amounts; unpriced work is blocked rather than paid at zero.
+- **Shift-based attendance** — pulls the workers who were present from existing Frappe HR attendance, filtered by shift and date (including their check-in/out times).
+- **Equal payout distribution** — the day's total pool is shared evenly among the casuals present.
+- **Pay-period roll-up** — aggregates all submitted daily payouts in a date range into a single total per worker.
+- **Payroll integration** — generates one Salary Structure Assignment per worker so casual pay enters the normal payroll run, with statutory deductions applied via the chosen salary structure.
+- **Double-payment guard** — a "Payment Processed" flag excludes consumed payouts from future roll-ups and is automatically reversed if a roll-up is cancelled.
+- **Desk integration** — a dedicated "Casual Piece Rate" workspace and a traceability link from each Salary Structure Assignment back to the roll-up that created it.
 
-- Save and Submit to automatically generate salary structure assignments for each employee, with the designated salary structure. The total amount the employee has worked within the specified duration becomes their base.
-- Once this is completed, a checkbox on the Doctype **Casual Payroll Payout** labeled _Payment Processed_ will be checked. This will prevent the creation of another Casual Salary Structure Assignment from it.
-However, if the salary structure is canceled, the checkbox will be unchecked, allowing for the creation of a new structure.
-  
+## Requirements
 
-This system simplifies the process of calculating daily and weekly payouts for casual workers, ensuring accurate payroll processing and efficient management of salary structures.
-
-  
+- [Frappe Framework](https://github.com/frappe/frappe)
+- [ERPNext](https://github.com/frappe/erpnext) *(required)*
+- [Frappe HR](https://github.com/frappe/hrms) *(required)*
+- Python ≥ 3.10
 
 ## Installation
 
-### Manual Installation
-
 1. [Install bench](https://github.com/frappe/bench)
-
 2. [Install ERPNext](https://github.com/frappe/erpnext#installation)
-
 3. [Install Frappe HR](https://github.com/frappe/hrms)
+4. With bench, ERPNext and Frappe HR in place, add the app to your bench:
 
-4. Once bench, ERPNext and Frappe HR are installed, add nl_piece_rate_pay to your bench by running
+   ```sh
+   bench get-app https://github.com/navariltd/nl-piece-rate-pay.git
+   ```
 
-```sh
+   To pull a specific branch (e.g. `version-15`):
 
-$ bench get-app https://github.com/navariltd/nl-piece-rate-pay.git
+   ```sh
+   bench get-app https://github.com/navariltd/nl-piece-rate-pay.git --branch version-15
+   ```
 
-```
+5. Install it on your site:
 
-If you want to get specific branch use
+   ```sh
+   bench --site {sitename} install-app nl_piece_rate_pay
+   ```
 
-```sh
+   Replace `{sitename}` with your site name.
 
-$ bench get-app https://github.com/navariltd/nl-piece-rate-pay.git --branch {branch-name}
+**Branches:** `develop` (default) and `version-15` — match the branch to your ERPNext/Frappe HR major version.
 
-```
 
-Replace <i>{branch-name}</i> with any of the repository's branches
+## Basic usage
 
-5. After that, you can install the nl_piece_rate_pay app on the required site by running
+The app runs in three stages: set up pricing once, capture work and pay daily, then roll the period up into payroll.
 
-```sh
+### 1. Set up pricing
 
-$ bench --site {sitename}  install-app  nl_piece_rate_pay
+Create your **Activity Types**, then for each priced unit of work create a **Casual Activity Item**: choose the activity, the item, and set the **rate per unit**.
 
-```
+![Activity Type](https://github.com/user-attachments/assets/7c6d7da4-ed24-4d6d-9a74-6e57463aaa97)
+![Casual Activity Item](https://github.com/user-attachments/assets/8930c6a9-944d-467b-95dd-34ebc8ca509c)
 
-Replace <i>{sitename}</i> with the name of your site.
+### 2. Daily payout
 
->In case you encounter any issues with installation or functionality, please raise a GitHub issue, and we will respond within one business day.
->Also do a PR incase you have additional functionality that you want incoporated in the application.
->Thank you.
+Make sure casuals have clocked attendance on their **own dedicated shift** for the day, then create a **Casual Payroll Payout**:
+
+1. Set the company, shift type, and attendance date.
+2. Add the activities and quantities worked — rates and totals fill in automatically.
+3. Click **Get Employees** to pull the workers present on that shift/date.
+4. Click **Calculate Payout** to split the day's total equally among them.
+5. **Submit.**
+
+![Casual Payroll Payout](https://github.com/user-attachments/assets/66dae217-e76b-4c4a-a13f-a1931cefc658)
+
+### 3. Weekly roll-up
+
+Create a **Casual Salary Structure Assignment Tool**:
+
+1. Set the pay period's start and end dates.
+2. Click **Calculate Payout** to total each worker's earnings across the period (consumed payouts are marked *Payment Processed* so they can't be double-counted).
+3. Choose the **Salary Structure** to assign — pick one that includes the NSSF component for the period where the deduction should apply.
+4. **Save and Submit** to generate a Salary Structure Assignment per worker, ready for the standard payroll run.
+
+![Casual Salary Structure Assignment Tool](https://github.com/user-attachments/assets/a173690d-0eb6-4137-9856-02a813d00274)
+
+
+
+For the full workflow, data model, permissions, and operational notes, see the **[full documentation](https://docs.navari.co.ke/nl-piece-rate-pay/introduction)**.
+
+
+## Support & contributing
+
+- Hit a bug or unexpected behaviour? [Open a GitHub issue](https://github.com/navariltd/nl-piece-rate-pay/issues) — we aim to respond within one business day.
+- Built something useful on top of it? Pull requests are welcome.
+
+## License
+
+[GNU AGPLv3](LICENSE)
